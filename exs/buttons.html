@@ -1,19 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>100 Buttons!</title>
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>100 Buttons!</title>
+    <script src="../js/events.js" defer></script>
+  </head>
+  <body>
     <h1>Look At All My Buttons!</h1>
     <div id="container">
-        
-        <button onclick="createBtns()">Create 100Btns</button>
-    
+      <button onclick="createBtns()">Create 100Btns</button>
+
+      <button id="helloBtn">Olá</button>
+
+      <button id="loginBtn">Login</button>
+
+      <div id="divEvent">
+        <h5>Olá Maravilhoso mundo dos Eventos</h5>
+      </div>
     </div>
 
-</body>
+    <h6>Animais do Zoo</h6>
+    <form id="form" action="ourserver.com">
+      <label for="animal">Animal</label> <br />
+      <input type="text" name="newAnimal" id="animal" /><br />
+      <button type="submit">Submeter</button>
+    </form>
+    <ul id="l">
 
+    </ul>
+  </body>
 </html>
