@@ -17,8 +17,8 @@ function changeToGreen() {
 }
 
 helloBtn.addEventListener("mouseout", helloW);
-loginBtn.addEventListener("click", login, { once: true });
-loginBtn.addEventListener("click", helloW);
+loginBtn.addEventListener("click", login);
+//loginBtn.addEventListener("click", helloW);
 divEvent.addEventListener("click", changeToGreen);
 loginBtn.addEventListener("click", changeToGreen);
 helloBtn.addEventListener("click", changeToGreen);
