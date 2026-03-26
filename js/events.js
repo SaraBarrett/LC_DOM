@@ -3,13 +3,26 @@ let loginBtn = document.getElementById("loginBtn");
 let divEvent = document.getElementById("divEvent");
 let myList = document.getElementById("list");
 let myForm = document.getElementById("form");
+let logoutBtn = document.getElementById("logout");
+let catBtn = document.getElementById("cat-fact");
+let catFact = document.getElementById("fact");
+let rickBtn = document.getElementById("rickandmortypeople");
+let rickList = document.getElementById("rick-list");
 
 function helloW() {
   alert("hello mundo!");
 }
 
 function login() {
-  let pass = prompt("qual é a pass?");
+  //getItem: verifica o valor armazenado em determinada key; neste caso, key user_login
+
+  if (localStorage.getItem("user_login")) {
+    alert("Olá " + localStorage.getItem("user_login"));
+  } else {
+    let user = prompt("qual é o teu nome?");
+    //setItem: armazena no localStorage
+    localStorage.setItem("user_login", user);
+  }
 }
 
 function changeToGreen() {
@@ -44,5 +57,31 @@ myForm.addEventListener("submit", function (event) {
   myList.appendChild(newLi);
 
   this.reset();
+});
 
+logoutBtn.addEventListener("click", function () {
+  localStorage.removeItem("user_login");
+});
+
+catBtn.addEventListener("click", function () {
+  fetch("https://catfact.ninja/fact")
+    .then((response) => response.json())
+    .then((data) => {
+      catFact.innerText = data.fact;
+    });
+});
+
+rickBtn.addEventListener("click", function () {
+  fetch("https://rickandmortyapi.com/api/character")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.results);
+      for (let element of data.results) {
+        console.log(element.name);
+        let li = document.createElement('li');
+        li.innerText = element.name + element.id +element.status;
+
+        rickList.appendChild(li);
+      }
+    });
 });
